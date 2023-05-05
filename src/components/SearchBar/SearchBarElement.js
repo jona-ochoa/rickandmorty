@@ -28,10 +28,10 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
-  border-radius: 8px;
-  padding: 6px 18px;
-  border: 1px solid #363334;
-  color: #363334;
+  padding: 6px 2px;
+  border: none;
+  border-bottom: 2px solid #3f0594;
+  color: #3f0594;
   font-size: 1em;
-  outline: none;
+  outline: none; 
 `;

@@ -1,4 +1,4 @@
-import { Button, DivContainer, CardWrapper, Image, TextWrapper, Text } from "./CardElement.js";
+import { Button, DivContainer, CardWrapper, Image, TextWrapper, Text, TextNameLink } from "./CardElement.js";
 import { Link } from "react-router-dom";
 
 const Card = ({
@@ -19,7 +19,7 @@ const Card = ({
       </CardWrapper>
       <TextWrapper>  
         <Link to={`/detail/${id}`}>
-        <Text>Name: {name}</Text>
+        <TextNameLink>Name: {name}</TextNameLink>
         </Link>
         
         <Text>Status: {status}</Text>

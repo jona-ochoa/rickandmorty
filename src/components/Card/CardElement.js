@@ -78,3 +78,16 @@ letter-spacing: 2px;
 text-align: left;
 font-family: monospace;
 `
+export const TextNameLink = styled.h4`
+display: flex;
+align-items: center;
+padding: 0;
+margin: 0;
+font-size: 14px;
+letter-spacing: 2px;
+color: #3f0594;
+text-align: left;
+&:hover {
+  color: #3f0;
+}
+`

@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Navbar = styled.nav`
-  /* background: #112; */
-  background: #fff;
+  background: #110;
   height: 60px;
   margin-top: -60px;
   display: flex;
@@ -13,16 +12,6 @@ export const Navbar = styled.nav`
   position: sticky;
   top: 0;
   z-index: 10;
-  opacity: .5;
-  transition: ease-in-out .4s;
-
-  &:hover {
-	  opacity: 1;
-  }
-
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
-  }
 `;
 
 export const NavContainer = styled.div`

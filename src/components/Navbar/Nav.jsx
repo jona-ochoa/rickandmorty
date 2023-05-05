@@ -14,12 +14,7 @@ const Nav = ({ onSearch }) => {
     <Navbar>
       <NavContainer>
         <NavLogo to="/">
-          <img 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv-Iq4BR-ErVI6LRGd8xoJ2KjGnyahvLAHrA&usqp=CAU" 
-            alt="Rick&Morty" 
-            width="160px" 
-            height="60px" 
-          />
+          Rick & Morty
         </NavLogo>
 
         <NavMenu>
