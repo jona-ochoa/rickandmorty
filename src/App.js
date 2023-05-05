@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Cards from "./components/Cards/Cards";
+import Nav from "./components/Navbar/Nav";
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About/About";
+import Detail from './components/Detail/Detail'
+import GlobalStyles from "./GlobalStyles";
+import Error from "./components/Error/Error";
 
-function App() {
+const App = () => {
+  const [characters, setCharacters] = useState([]);
+
+  const onSearch = (id) => {
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((characters) => [...characters, data]);
+        } else {
+          alert("¡No hay personajes con este ID!");
+        }
+      }
+    );
+  };
+
+  const onClose = (id) => {
+    setCharacters(
+      characters.filter((character) => character.id !== Number(id))
+    )
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+
+        <Nav onSearch={onSearch} />
+      <Routes>
+        <Route path="/home" exact element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path="/about" exact element={<About />} />
+        <Route path="/detail/:id" exact element={<Detail />} />
+        <Route path="*" element={<Error/>} />
+      </Routes>  
+   
+    </>
   );
-}
+};
 
 export default App;
