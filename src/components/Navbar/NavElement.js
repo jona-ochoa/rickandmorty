@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Navbar = styled.nav`
-  background: #110;
+  background: #000;
   height: 60px;
   margin-top: -60px;
   display: flex;
@@ -36,7 +36,7 @@ export const NavLogo = styled(Link)`
   margin-left: 20px;
   font-weight: bold;
   text-decoration: none;
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 820px) {
     display: none;
   }
 `;
@@ -58,7 +58,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled(Link)`
-  color: #363334;
+  color: #fff;
   font-weight: 700;
   display: flex;
   text-decoration: none;

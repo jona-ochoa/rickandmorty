@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  background: #111;
   align-items: center;
-  margin-top: 80px;
-  width: 100vw;
+  margin-top: 60px;
+  height: 100vh;
+
   @media screen and (max-width: 620px) {
     flex-direction: column;
     text-align: center;
@@ -24,11 +26,11 @@ export const AboutWrap = styled.div`
 export const AboutWrapText = styled.div`
   width: 400px;
   height: 400px;
-  background: #fff;
-  color: #000;
+  background: #333;
+  color: #fff;
   padding: 1em;
   text-align: left;
-  border-radius: 10px;
+  border-radius: 0 18px 18px 0;
   @media screen and (max-width: 620px) {
     padding: 10px;
     width: 300px;
@@ -37,7 +39,7 @@ export const AboutWrapText = styled.div`
 `;
 
 export const Image = styled.img`
-  border-radius: 14px;
+  border-radius: 14px 0 0 14px;
   width: 400px;
   height: 400px;
   object-fit: cover;

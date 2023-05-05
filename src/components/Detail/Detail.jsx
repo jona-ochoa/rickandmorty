@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import {
+  DetailContainer,
+  DetailContent,
+  DetailContentImg,
+  Img,
+  Subtitle,
+  Title,
+} from "./DetailElements";
 
 const Detail = () => {
   const [character, setCharacter] = useState([]);
@@ -12,7 +20,7 @@ const Detail = () => {
         if (data.name) {
           setCharacter(data);
         } else {
-          window.alert("No hay personajes con ese ID");
+          alert("No hay personajes con ese ID");
         }
       }
     );
@@ -20,18 +28,18 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
-      <div>
-        <h1>{character.name}</h1>
-        <h2>{character.status}</h2>
-        <h2>{character.species}</h2>
-        <h2>{character.gender}</h2>
-        {/* <h2>{character.origin}</h2> */}
-      </div>
-      <div>
-      <img src={character.image} alt={character.name} />
-      </div>
-    </div>
+    <DetailContainer>
+      <DetailContent>
+        <Title>{character?.name}</Title>
+        <Subtitle>STATUS | {character?.status}</Subtitle>
+        <Subtitle>SPECIES | {character?.species}</Subtitle>
+        <Subtitle>GENDER | {character?.gender}</Subtitle>
+        <Subtitle>ORIGIN | {character?.origin?.name}</Subtitle>
+      </DetailContent>
+      <DetailContentImg>
+        <Img src={character.image} alt={character.name} />
+      </DetailContentImg>
+    </DetailContainer>
   );
 };
 

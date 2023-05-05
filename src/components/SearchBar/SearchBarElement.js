@@ -13,8 +13,8 @@ export const DivContent = styled.div`
 export const Button = styled.button`
   font-size: 1em;
   text-align: center;
-  margin-left: 1em;
-  border-radius: 8px;
+  margin-left: 12px;
+  border-radius: 3px;
   padding: 6px 18px;
   background: #3f0594;
   color: #fff;
@@ -32,12 +32,14 @@ export const Button = styled.button`
 export const Input = styled.input`
   padding: 6px 6px;
   border: none;
+  background: #333;
+  max-width: 100%;
   border-bottom: 2px solid #999;
-  color: #3f0594;
+  color: #fff;
   font-size: 1em;
   outline: none;
   &::placeholder {
-    color: #ccc;
+    color: #555;
   }
   &:focus {
     border-bottom: 2px solid #3f0594;

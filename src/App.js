@@ -1,23 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Navbar/Nav";
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
-import Detail from './components/Detail/Detail'
+import Detail from "./components/Detail/Detail";
 import GlobalStyles from "./GlobalStyles";
 import Error from "./components/Error/Error";
+import Form from "./components/Form/Form";
+
+const EMAIL = "jonatan.c.ochoa@gmail.com";
+const PASSWORD = "123aaa";
 
 const App = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+
+  const login = (userData) => {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
+      setAccess(true);
+      navigate('/home');
+    }
+  };
+
+  useEffect(() => {
+    !access && navigate('/')
+  }, [access])
+  
 
   const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacters((characters) => [...characters, data]);
-        } else {
+        }
+        if (!data.id && !data.id) {
           alert("¡No hay personajes con este ID!");
         }
       }
@@ -27,21 +47,25 @@ const App = () => {
   const onClose = (id) => {
     setCharacters(
       characters.filter((character) => character.id !== Number(id))
-    )
+    );
   };
 
   return (
     <>
       <GlobalStyles />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
 
-        <Nav onSearch={onSearch} />
       <Routes>
-        <Route path="/home" exact element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path="/" element={<Form login={login} />} />
+        <Route
+          path="/home"
+          exact
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" exact element={<Error/>} />
-      </Routes>  
-   
+        <Route path="*" exact element={<Error />} />
+      </Routes>
     </>
   );
 };
