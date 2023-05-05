@@ -1,4 +1,12 @@
-import { Button, DivContainer, CardWrapper, Image, TextWrapper, Text, TextNameLink } from "./CardElement.js";
+import {
+  Button,
+  DivContainer,
+  CardWrapper,
+  Image,
+  TextWrapper,
+  Text,
+  TextNameLink,
+} from "./CardElement.js";
 import { Link } from "react-router-dom";
 
 const Card = ({
@@ -9,19 +17,18 @@ const Card = ({
   gender,
   origin,
   image,
-  onClose 
+  onClose,
 }) => {
   return (
     <DivContainer>
       <CardWrapper>
         <Image src={image} alt={name} />
-        <Button onClick={()=>onClose(id)}>x</Button>
+        <Button onClick={() => onClose(id)}>x</Button>
       </CardWrapper>
-      <TextWrapper>  
+      <TextWrapper>
         <Link to={`/detail/${id}`}>
-        <TextNameLink>Name: {name}</TextNameLink>
+          <TextNameLink>Name: {name}</TextNameLink>
         </Link>
-        
         <Text>Status: {status}</Text>
         <Text>Specie: {species}</Text>
         <Text>Gender: {gender}</Text>

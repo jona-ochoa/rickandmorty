@@ -5,17 +5,23 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 60px;
-  width: 100%;
-  background: #258;
+  margin-top: 80px;
+  width: 100vw;
+  @media screen and (max-width: 620px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
-export const AboutWrap = styled.section`
+export const AboutWrap = styled.div`
   padding: 1em;
   width: 400px;
-`
+  @media screen and (max-width: 620px) {
+    padding: 10px;
+  }
+`;
 
-export const AboutWrapText = styled.section`
+export const AboutWrapText = styled.div`
   width: 400px;
   height: 400px;
   background: #fff;
@@ -23,11 +29,29 @@ export const AboutWrapText = styled.section`
   padding: 1em;
   text-align: left;
   border-radius: 10px;
-`
+  @media screen and (max-width: 620px) {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 10px;
+  }
+`;
 
 export const Image = styled.img`
   border-radius: 14px;
   width: 400px;
   height: 400px;
   object-fit: cover;
+  @media screen and (max-width: 620px) {
+    height: 200px;
+    width: 200px;
+  }
+`;
+
+export const TextLink = styled.h4`
+  font-size: 1em;
+  color: #2c5;
+  font-weight: 900px;
+  &:hover{
+    color: #3f0594;
+  }
 `

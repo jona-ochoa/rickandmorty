@@ -14,7 +14,7 @@ const Nav = ({ onSearch }) => {
     <Navbar>
       <NavContainer>
         <NavLogo to="/">
-          Rick & Morty
+          Rick&Morty
         </NavLogo>
 
         <NavMenu>

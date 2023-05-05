@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Container, AboutWrap, Image, AboutWrapText } from "./AboutElement";
+import { Container, AboutWrap, Image, AboutWrapText, TextLink } from "./AboutElement";
 
 const About = () => {
   return (
@@ -20,10 +20,10 @@ const About = () => {
         <h4>Cohorte: FT-38a</h4>
         <h4>Grupo: N°3</h4>
         <Link to="https://github.com/jona-ochoa">
-          <p>Github: jona-ochoa</p>
+          <TextLink>Github: jona-ochoa</TextLink>
         </Link>
         <Link to="https://linkedin.com/in/jonaochoa">
-          <p>LinkedIn: jonaochoa</p>
+          <TextLink>LinkedIn: jonaochoa</TextLink>
         </Link>
       </AboutWrapText>
     </Container>
