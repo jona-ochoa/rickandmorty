@@ -1,34 +1,33 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import {   
+import {
   Navbar,
   NavContainer,
   NavLogo,
   NavItem,
   NavLink,
-  NavMenu
- } from "./NavElement";
+  NavMenu,
+  Button
+} from "./NavElement";
 
-const Nav = ({ onSearch }) => {
+const Nav = ({ onSearch, logout }) => {
   return (
     <Navbar>
       <NavContainer>
-        <NavLogo to="/">
-          Rick&Morty
-        </NavLogo>
-
+        <NavLogo to="/">Rick&Morty</NavLogo>
         <NavMenu>
           <NavItem>
-            <NavLink to="/home">HOME</NavLink> 
+            <NavLink to="/home">HOME</NavLink>
           </NavItem>
           <NavItem>
             <NavLink to="/about">ABOUT</NavLink>
           </NavItem>
         </NavMenu>
-          <SearchBar onSearch={onSearch} />
+        <SearchBar onSearch={onSearch} />
+        <Button onClick={logout}>LOG OUT</Button>
       </NavContainer>
     </Navbar>
   );
-}
+};
 
 export default Nav;

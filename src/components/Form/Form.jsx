@@ -36,7 +36,6 @@ const Form = ({ login }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     login(userData)
-
   };
 
   return (

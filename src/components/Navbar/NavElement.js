@@ -18,6 +18,7 @@ export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
+  align-items: center;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
@@ -78,3 +79,24 @@ export const NavLink = styled(Link)`
     padding: 0 4px;
   }
 `;
+
+export const Button = styled.button `
+  background: red;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  overflow: hidden;
+  height: 30px;
+  opacity: 1;
+  outline: none;
+  align-items: center;
+  transition: ease .3s;
+  &:hover {
+    background: white;
+    color: red;
+  }
+`

@@ -5,8 +5,6 @@ export const DivContent = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 100vw;
-  margin-top: 0.4em;
   margin-right: 0.2em;
 `;
 
