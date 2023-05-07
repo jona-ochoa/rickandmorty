@@ -61,7 +61,7 @@ const Form = ({ login }) => {
           <Input
             value={userData.password}
             onChange={handleChange}
-            type="text"
+            type="password"
             name="password"
             placeholder="Enter password"
           />

@@ -14,11 +14,13 @@ export const DivContainer = styled.div`
   overflow: hidden;
   border-radius: 8px;
   text-align: left;
-  box-shadow: 5px 5px 5px rgba(241, 236, 236, 0.486);
   opacity: 0.8;
   transition: ease 0.3s;
   &:hover {
     opacity: 1;
+  }
+  @media screen and(max-width:768px){
+    margin: 5px auto;
   }
 `;
 export const CardWrapper = styled.div`

@@ -31,7 +31,7 @@ export const Img = styled.img`
 
 export const Title = styled.h1`
   font-size: 50px;
-  color: #fff;
+  color: #000000;
   @media screen and (max-width: 620px) {
     font-size: 30px;
   }
@@ -39,7 +39,7 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h3`
   font-size: 34px;
-  color: #fff;
+  color: #000000;
   @media screen and (max-width: 620px) {
     font-size: 20px;
   }

@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  height: 100vh;
+  display: grid;
+  margin-top: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
   justify-content: center;
-  align-items: flex-start;
-  color: #f6f4e6;
-  margin-top: 80px;
+  align-items: center;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 `;

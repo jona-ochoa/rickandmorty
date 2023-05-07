@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  background: #111;
+  justify-content: center;
+  background: #112;
   align-items: center;
-  margin-top: 60px;
+  padding-top: 60px;
   height: 100vh;
+  text-align: center;
 
   @media screen and (max-width: 620px) {
     flex-direction: column;
@@ -16,8 +17,8 @@ export const Container = styled.div`
 `;
 
 export const AboutWrap = styled.div`
-  padding: 1em;
   width: 400px;
+  height: 400px;
   @media screen and (max-width: 620px) {
     padding: 10px;
   }
@@ -26,7 +27,7 @@ export const AboutWrap = styled.div`
 export const AboutWrapText = styled.div`
   width: 400px;
   height: 400px;
-  background: #333;
+  background: linear-gradient(45deg, #ff0000, #0000ff);
   color: #fff;
   padding: 1em;
   text-align: left;
@@ -43,6 +44,11 @@ export const Image = styled.img`
   width: 400px;
   height: 400px;
   object-fit: cover;
+  opacity: .7;
+  transition: ease-in-out .5s;
+  &:hover{
+    opacity:1;
+  }
   @media screen and (max-width: 620px) {
     height: 200px;
     width: 200px;
