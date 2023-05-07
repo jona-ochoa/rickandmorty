@@ -17,7 +17,7 @@ export const Navbar = styled.nav`
 export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 60px;
   align-items: center;
   z-index: 1;
   width: 100%;
@@ -48,9 +48,8 @@ export const NavMenu = styled.ul`
   list-style: none;
   text-align: center;
   margin-right: -24px;
-  @media screen and (max-width: 620px) {
-    margin: 0;
-    padding: 0;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -80,7 +79,7 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const Button = styled.button `
+export const Button = styled.button`
   background: red;
   color: white;
   padding: 8px 12px;
@@ -94,9 +93,9 @@ export const Button = styled.button `
   opacity: 1;
   outline: none;
   align-items: center;
-  transition: ease .3s;
+  transition: ease 0.3s;
   &:hover {
     background: white;
     color: red;
   }
-`
+`;

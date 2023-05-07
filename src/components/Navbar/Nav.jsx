@@ -7,10 +7,11 @@ import {
   NavItem,
   NavLink,
   NavMenu,
-  Button
+  Button,
 } from "./NavElement";
 
 const Nav = ({ onSearch, logout }) => {
+
   return (
     <Navbar>
       <NavContainer>

@@ -28,8 +28,8 @@ const App = () => {
 
   const logout = () => {
     setAccess(false);
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   useEffect(() => {
     !access && navigate("/");
@@ -57,7 +57,12 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
+      {location.pathname !== "/" && (
+        <Nav
+          onSearch={onSearch}
+          logout={logout}
+        />
+      )}
 
       <Routes>
         <Route path="/" element={<Form login={login} />} />
