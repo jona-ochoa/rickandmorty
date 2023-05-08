@@ -8,6 +8,7 @@ body {
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZh4GaA5HX2seL2x2hgbDKCWJAwYbGKdVtLr9HHo4g0HD0ijPgt3q7JGPyXlyjhmoCBms&usqp=CAU');
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 a {

@@ -45,7 +45,7 @@ const Form = ({ login }) => {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2PNgriWT5_Uj7CFmvanxcpBMx_JZn976wNKXxYsgV5A&s"
           alt=""
         />
-        <InputsWrapper onSubmit={handleSubmit}>
+        <InputsWrapper>
 
           <Label>Email:</Label>
           <Input
@@ -68,7 +68,7 @@ const Form = ({ login }) => {
           {errors.password && <TextError>{errors.password}</TextError>}
 
           <DivButton>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" onClick={handleSubmit}>Submit</Button>
           </DivButton>
         </InputsWrapper>
       </Content>

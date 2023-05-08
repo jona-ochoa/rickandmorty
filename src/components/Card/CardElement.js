@@ -10,17 +10,12 @@ export const DivContainer = styled.div`
   padding: 0;
   width: 250px;
   border: 3px solid #2f5;
-  background: #101010;
+  background: #000;
   overflow: hidden;
   border-radius: 8px;
   text-align: left;
-  opacity: 0.8;
-  transition: ease 0.3s;
-  &:hover {
-    opacity: 1;
-  }
   @media screen and(max-width:768px){
-    margin: 5px auto;
+    margin-left: 0;
   }
 `;
 export const CardWrapper = styled.div`
@@ -57,7 +52,7 @@ export const Image = styled.img`
 
 export const TextWrapper = styled.div`
   display: flex;
-  background: #444;
+  background: #111;
   color: #2f5;
   flex-direction: column;
   padding: 10px;
@@ -86,9 +81,9 @@ export const TextNameLink = styled.h4`
   margin: 0;
   font-size: 14px;
   letter-spacing: 2px;
-  color: #3f0594;
+  color: #0000ff;
   text-align: left;
   &:hover {
-    color: #3f0;
+    color: #3f0594;
   }
 `;
