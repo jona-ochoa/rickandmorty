@@ -9,6 +9,7 @@ import Detail from "./components/Detail/Detail";
 import GlobalStyles from "./GlobalStyles";
 import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
 
 const EMAIL = "jonatan.c.ochoa@gmail.com";
 const PASSWORD = "123aaa";
@@ -28,7 +29,6 @@ const App = () => {
 
   const logout = () => {
     setAccess(false);
-    navigate("/");
   };
 
   useEffect(() => {
@@ -74,6 +74,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" exact element={<Error />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );

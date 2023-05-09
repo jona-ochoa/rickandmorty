@@ -8,6 +8,7 @@ import {
   NavLink,
   NavMenu,
   Button,
+  WrapperInputButton,
 } from "./NavElement";
 
 const Nav = ({ onSearch, logout }) => {
@@ -23,9 +24,14 @@ const Nav = ({ onSearch, logout }) => {
           <NavItem>
             <NavLink to="/about">ABOUT</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink to="/favorites">FAVORITES</NavLink>
+          </NavItem>
         </NavMenu>
-        <SearchBar onSearch={onSearch} />
-        <Button onClick={logout}>LOG OUT</Button>
+        <WrapperInputButton>
+          <SearchBar onSearch={onSearch} />
+          <Button onClick={logout}>LOG OUT</Button>
+        </WrapperInputButton>
       </NavContainer>
     </Navbar>
   );

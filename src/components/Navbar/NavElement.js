@@ -21,23 +21,35 @@ export const NavContainer = styled.div`
   align-items: center;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
-  max-width: 1200px;
+  padding: 0 30px;
+  max-width: 1300px;
+
+   @media screen and (max-width: 1024px) {
+    padding: 0 10px;
+    justify-content: space-around;
+  }
 `;
+
+export const WrapperInputButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+`
 
 export const NavLogo = styled(Link)`
   color: #2f5;
-  letter-spacing: 1.4px;
+  letter-spacing: 2.4px;
   justify-self: flex-start;
   cursor: pointer;
   font-size: 2rem;
-  font-family: monospace;
   display: flex;
+  font-family: 'Creepster', cursive;
   align-items: center;
-  margin-left: 20px;
   font-weight: bold;
   text-decoration: none;
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 920px) {
     display: none;
   }
 `;
@@ -47,14 +59,14 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
-  margin-right: -24px;
-  @media screen and (max-width: 768px) {
-    display: none;
+  @media screen and (max-width: 425px) {
+    /* display: none; */
+    margin: -30px;
   }
 `;
 
 export const NavItem = styled.li`
-  height: 80px;
+  height: 60px;
 `;
 
 export const NavLink = styled(Link)`
@@ -73,9 +85,12 @@ export const NavLink = styled(Link)`
     color: #2f5;
   }
 
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 820px) {
     font-size: 14px;
     padding: 0 4px;
+  }
+  @media screen and (max-width: 425px) {
+    padding: 0 1px;
   }
 `;
 
@@ -97,5 +112,9 @@ export const Button = styled.button`
   &:hover {
     background: white;
     color: red;
+  }
+  @media screen and (max-width: 425px) {
+    font-size: 10px;
+    padding: 4px 6px;
   }
 `;

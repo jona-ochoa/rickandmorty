@@ -4,8 +4,7 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   @media screen and (max-width: 768px) {
     padding-top: 0;
     width: 100vw;
@@ -21,7 +20,8 @@ export const Content = styled.div`
   background: linear-gradient(45deg, #0000ff, #cb3234);
   text-align: center;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  
   @media screen and (max-width: 768px) {
     width: 100vw;
     height: 100vh;
@@ -33,14 +33,20 @@ export const Content = styled.div`
 export const InputsWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  gap: 10px;
+  max-width: 500px;
+  overflow: hidden;
   @media screen and (max-width: 768px) {
     width: 250px;
   }
 `;
 
+export const InputsContent = styled.div`
+  position: relative;
+  margin: 8px;
+`
+
 export const Label = styled.label`
+  width: 100%;
   display: flex;
   font-weight: 700;
   color: #fff;
@@ -48,6 +54,7 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   font-size: 1em;
+  width: 300px;
   padding: 8px 12px;
   outline: none;
   margin: 0;
@@ -77,12 +84,15 @@ export const Button = styled.button`
 `;
 export const DivButton = styled.div`
   display: flex;
+  margin-top: 20px;
   width: 100%;
   justify-content: space-around;
 `;
 export const TextError = styled.p`
+  position: absolute;
   color: #ff0000;
   font-weight: 900;
-  padding: 0;
-  margin: 0;
+  font-size: 14px;
+  top: 75%;
+  left: 0;
 `;

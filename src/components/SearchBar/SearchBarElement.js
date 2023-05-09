@@ -22,16 +22,19 @@ export const Button = styled.button`
     cursor: pointer;
     background: #52f;
   }
-  @media screen and (max-width: 620px) {
-    padding: 6px 12px;
+
+  @media screen and (max-width: 425px) {
+    font-size: 10px;
+    padding: 8px 6px;
   }
 `;
 
 export const Input = styled.input`
-  padding: 6px 6px;
+  padding: 8px 12px;
   border: none;
+  border-radius: 4px;
   background: #333;
-  max-width: 100%;
+  max-width: 160px;
   border-bottom: 2px solid #999;
   color: #fff;
   font-size: 1em;
@@ -42,8 +45,10 @@ export const Input = styled.input`
   &:focus {
     border-bottom: 2px solid #3f0594;
   }
-  @media screen and (max-width: 620px) {
-    font-size: 14px;
-    width: 120px;
+
+  @media screen and (max-width: 425px) {
+    font-size: 10px;
+    width: 50px;
+    padding: 8px 6px;
   }
 `;

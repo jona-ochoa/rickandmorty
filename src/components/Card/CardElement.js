@@ -33,8 +33,12 @@ export const Button = styled.button`
   top: 5px;
   background-color: red;
   border: none;
-  font-size: 14px;
-  opacity: 0.5;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+  font-weight: 900;
+  padding: 0 5px 3px 5px;
+  opacity: 0.7;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
@@ -42,6 +46,17 @@ export const Button = styled.button`
   &:hover {
     opacity: 1;
   }
+`;
+
+export const ButtonFav = styled.button`
+  position: absolute;
+  background: transparent;
+  left: 5px;
+  top: 5px;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`

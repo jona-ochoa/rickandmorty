@@ -7,6 +7,7 @@ import {
   Button,
   Image,
   Content,
+  InputsContent,
   DivButton,
   TextError,
 } from "./FormElement";
@@ -46,7 +47,7 @@ const Form = ({ login }) => {
           alt=""
         />
         <InputsWrapper>
-
+          <InputsContent>
           <Label>Email:</Label>
           <Input
             value={userData.email}
@@ -56,7 +57,8 @@ const Form = ({ login }) => {
             placeholder="Enter email"
           />
           {errors.email && <TextError>{errors.email}</TextError>}
-
+          </InputsContent>
+          <InputsContent>
           <Label>Password:</Label>
           <Input
             value={userData.password}
@@ -66,7 +68,8 @@ const Form = ({ login }) => {
             placeholder="Enter password"
           />
           {errors.password && <TextError>{errors.password}</TextError>}
-
+          </InputsContent>
+         
           <DivButton>
             <Button type="submit" onClick={handleSubmit}>Submit</Button>
           </DivButton>
