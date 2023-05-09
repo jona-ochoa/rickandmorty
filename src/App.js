@@ -12,7 +12,7 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 const EMAIL = "jonatan.c.ochoa@gmail.com";
-const PASSWORD = "123aaa";
+const PASSWORD = "123asd";
 
 const App = () => {
   const location = useLocation();

@@ -54,7 +54,7 @@ const Form = ({ login }) => {
             onChange={handleChange}
             type="text"
             name="email"
-            placeholder="Enter email"
+            placeholder="jonatan.c.ochoa@gmail.com"
           />
           {errors.email && <TextError>{errors.email}</TextError>}
           </InputsContent>
@@ -65,7 +65,7 @@ const Form = ({ login }) => {
             onChange={handleChange}
             type="password"
             name="password"
-            placeholder="Enter password"
+            placeholder="123asd"
           />
           {errors.password && <TextError>{errors.password}</TextError>}
           </InputsContent>
