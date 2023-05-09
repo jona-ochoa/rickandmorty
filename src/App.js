@@ -29,6 +29,7 @@ const App = () => {
 
   const logout = () => {
     setAccess(false);
+    setCharacters([])
   };
 
   useEffect(() => {

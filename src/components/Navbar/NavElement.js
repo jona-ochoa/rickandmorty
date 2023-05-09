@@ -39,7 +39,7 @@ export const WrapperInputButton = styled.div`
 `
 
 export const NavLogo = styled(Link)`
-  color: #2f5;
+  color: #00aae4;
   letter-spacing: 2.4px;
   justify-self: flex-start;
   cursor: pointer;
@@ -82,7 +82,7 @@ export const NavLink = styled(Link)`
   transition: ease 0.3s;
 
   &:hover {
-    color: #2f5;
+    color: #00aae4;
   }
 
   @media screen and (max-width: 820px) {

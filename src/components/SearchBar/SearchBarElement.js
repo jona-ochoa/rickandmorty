@@ -13,14 +13,16 @@ export const Button = styled.button`
   text-align: center;
   margin-left: 12px;
   border-radius: 3px;
-  padding: 6px 18px;
-  background: #3f0594;
-  color: #fff;
+  padding: 6px 12px;
+  background: #00aae4;
+  color: #333;
+  font-weight: 600;
   border: none;
   transition: all 0.3s;
   &:hover {
     cursor: pointer;
-    background: #52f;
+    background: #2c5;
+    color: white;
   }
 
   @media screen and (max-width: 425px) {

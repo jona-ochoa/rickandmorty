@@ -9,12 +9,19 @@ export const DivContainer = styled.div`
   margin-left: 30px;
   padding: 0;
   width: 250px;
-  border: 3px solid #2f5;
-  background: #000;
+  border: 3px solid #00aae4;
   overflow: hidden;
   border-radius: 8px;
   text-align: left;
-  @media screen and(max-width:768px){
+  opacity: 0.7;
+  transition: ease 0.3s;
+  &:hover {
+    opacity: 1;
+    box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
+    -webkit-box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
+    -moz-box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
+  }
+  @media screen and(max-width:768px) {
     margin-left: 0;
   }
 `;
@@ -67,8 +74,14 @@ export const Image = styled.img`
 
 export const TextWrapper = styled.div`
   display: flex;
-  background: #111;
-  color: #2f5;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    143deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: #fff;
   flex-direction: column;
   padding: 10px;
   margin: 0;
@@ -77,6 +90,7 @@ export const TextWrapper = styled.div`
   text-align: left;
   justify-content: center;
   line-height: 25px;
+  transition: ease 0.3s;
 `;
 
 export const Text = styled.h4`
@@ -96,9 +110,11 @@ export const TextNameLink = styled.h4`
   margin: 0;
   font-size: 14px;
   letter-spacing: 2px;
-  color: #0000ff;
+  color: #fff;
   text-align: left;
+  transition: ease .3s;
   &:hover {
-    color: #3f0594;
+    color: #fc466b;
+    text-decoration: underline;
   }
 `;
