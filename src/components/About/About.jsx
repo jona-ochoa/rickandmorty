@@ -1,24 +1,22 @@
 import { Link } from "react-router-dom";
-import { Container, AboutWrap, Image, AboutWrapText, TextLink } from "./AboutElement";
+import { Container, WrapperDiv , AboutWrap, Image, AboutWrapText, TextLink, Text } from "./AboutElement";
 
 const About = () => {
   return (
     <Container id="about" className='about'>
+      <WrapperDiv>
       <AboutWrap>
-        <Image          
-          src={
-            "https://jonaochoa.vercel.app/static/media/jonacode.3b5e728e432e6b1e1dae.jpg"
-          }
+        <Image src={"https://jonaochoa.vercel.app/static/media/jonacode.3b5e728e432e6b1e1dae.jpg"}
           alt="Jonatan"
         />
       </AboutWrap>
       <AboutWrapText>
-        <h4>Nombre: Jonatan Ochoa</h4>
-        <h4>Edad: 34 años</h4>
-        <h4>Ciudad: Jesús María, Córdoba</h4>
-        <h4>Nacionalidad: Argentino</h4>
-        <h4>Cohorte: FT-38a</h4>
-        <h4>Grupo: N°3</h4>
+        <Text>Nombre: Jonatan Ochoa</Text>
+        <Text>Edad: 34 años</Text>
+        <Text>Ciudad: Jesús María, Córdoba</Text>
+        <Text>Nacionalidad: Argentino</Text>
+        <Text>Cohorte: FT-38a</Text>
+        <Text>Grupo: N°3</Text>
         <Link to="https://github.com/jona-ochoa">
           <TextLink>Github: jona-ochoa</TextLink>
         </Link>
@@ -26,6 +24,7 @@ const About = () => {
           <TextLink>LinkedIn: jonaochoa</TextLink>
         </Link>
       </AboutWrapText>
+      </WrapperDiv>
     </Container>
   );
 };

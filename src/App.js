@@ -29,7 +29,6 @@ const App = () => {
 
   const logout = () => {
     setAccess(false);
-    setCharacters([])
   };
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const App = () => {
         if (data.name) {
           setCharacters((characters) => [...characters, data]);
         }
-        if (!data.id && !data.id) {
+        if (!data.id || data.id.length > 820) {
           alert("¡No hay personajes con este ID!");
         }
       }
@@ -58,13 +57,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {location.pathname !== "/" && (
-        <Nav
-          onSearch={onSearch}
-          logout={logout}
-        />
-      )}
-
+      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route

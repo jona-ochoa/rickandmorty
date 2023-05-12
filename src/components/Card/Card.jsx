@@ -27,6 +27,7 @@ const Card = ({
   myFavorites,
 }) => {
   const [isFav, setIsFav] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -44,24 +45,42 @@ const Card = ({
         setIsFav(true);
       }
     });
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, [myFavorites]);
 
   return (
     <DivContainer>
-      <CardWrapper>
-        <ButtonFav onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</ButtonFav>
-        <Image src={image} alt={name} />
-        <Button onClick={() => onClose(id)}>x</Button>
-      </CardWrapper>
-      <TextWrapper>
-        <Link to={`/detail/${id}`}>
-          <TextNameLink>Name: {name}</TextNameLink>
-        </Link>
-        <Text>Status: {status}</Text>
-        <Text>Specie: {species}</Text>
-        <Text>Gender: {gender}</Text>
-        <Text>Origin: {origin}</Text>
-      </TextWrapper>
+      {loading ? (
+        <>
+          <CardWrapper>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif"
+              alt="Cargando..."
+            />
+          </CardWrapper>
+        </>
+      ) : (
+        <>
+          <CardWrapper>
+            <ButtonFav onClick={handleFavorite}>
+              {isFav ? "❤️" : "🤍"}
+            </ButtonFav>
+            <Image src={image} alt={name} />
+            <Button onClick={() => onClose(id)}>x</Button>
+          </CardWrapper>
+          <TextWrapper>
+            <Link to={`/detail/${id}`}>
+              <TextNameLink>Name: {name}</TextNameLink>
+            </Link>
+            <Text>Status: {status}</Text>
+            <Text>Specie: {species}</Text>
+            <Text>Gender: {gender}</Text>
+            <Text>Origin: {origin}</Text>
+          </TextWrapper>
+        </>
+      )}
     </DivContainer>
   );
 };
