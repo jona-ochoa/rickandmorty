@@ -5,6 +5,8 @@ export const DetailContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: 'Creepster', cursive;
+  letter-spacing: 1em;
   width: 100vw;
   height: 100vh;
   @media screen and (max-width: 620px) {
@@ -22,7 +24,7 @@ export const DetailContentImg = styled.div`
 `; 
 
 export const Img = styled.img`
-  width: 500px;
+  max-width: 500px;
   border-radius: 50%;
   @media screen and (max-width: 620px) {
    width: 200px;
@@ -31,7 +33,9 @@ export const Img = styled.img`
 
 export const Title = styled.h1`
   font-size: 50px;
-  color: #000000;
+  background-color: #000;
+  color: #00aae4;
+  font-weight: 700;
   @media screen and (max-width: 620px) {
     font-size: 30px;
   }
@@ -39,7 +43,9 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h3`
   font-size: 34px;
-  color: #000000;
+  color: #00aae4;
+  background-color: #000;
+  font-weight: 700;
   @media screen and (max-width: 620px) {
     font-size: 20px;
   }

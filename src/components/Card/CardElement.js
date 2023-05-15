@@ -23,6 +23,7 @@ export const DivContainer = styled.div`
   }
   @media screen and(max-width:768px) {
     margin-left: 0;
+    opacity: 1;
   }
 `;
 export const CardWrapper = styled.div`

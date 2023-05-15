@@ -33,10 +33,10 @@ export const Content = styled.div`
 export const InputsWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 300px;
   overflow: hidden;
   @media screen and (max-width: 768px) {
-    width: 250px;
+    width: 90%;
   }
 `;
 
@@ -54,7 +54,7 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   font-size: 1em;
-  width: 300px;
+  width: 500px;
   padding: 8px 12px;
   outline: none;
   margin: 0;
@@ -84,7 +84,7 @@ export const Button = styled.button`
 `;
 export const DivButton = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   justify-content: space-around;
 `;
@@ -93,6 +93,6 @@ export const TextError = styled.p`
   color: #ff0000;
   font-weight: 900;
   font-size: 14px;
-  top: 75%;
+  top: 77%;
   left: 0;
 `;

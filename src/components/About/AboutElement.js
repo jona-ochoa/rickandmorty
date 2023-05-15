@@ -17,6 +17,7 @@ export const Container = styled.div`
   @media screen and (max-width: 620px) {
     flex-direction: column;
     text-align: center;
+    height: 100%;
   }
 `;
 
@@ -26,6 +27,12 @@ export const WrapperDiv = styled.div`
   box-shadow: 18px 19px 14px 17px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 18px 19px 14px 17px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 18px 19px 14px 17px rgba(0, 0, 0, 0.75);
+  @media screen and (max-width: 620px) {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0px;
+  }
 `
 
 export const AboutWrap = styled.div`
@@ -33,7 +40,7 @@ export const AboutWrap = styled.div`
   height: 400px;
   flex-direction: row;
   @media screen and (max-width: 620px) {
-    padding: 10px;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -51,9 +58,8 @@ export const AboutWrapText = styled.div`
   text-align: left;
   border-radius: 0 18px 18px 0;
   @media screen and (max-width: 620px) {
-    padding: 10px;
-    width: 300px;
-    margin-bottom: 10px;
+   width: 100%;
+   text-align: center;
   }
 `;
 
@@ -64,8 +70,9 @@ export const Image = styled.img`
   object-fit: cover;
 
   @media screen and (max-width: 620px) {
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
   }
 `;
 

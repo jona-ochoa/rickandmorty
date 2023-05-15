@@ -2,7 +2,6 @@ import Card from "../Card/Card";
 import { Container } from "./CardsElements";
 
 const Cards = ({ characters, onClose }) => {
-
   return (
     <Container>
       {characters?.map(

@@ -5,9 +5,10 @@ html,
 body {
     padding: 0;
     margin: 0;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZh4GaA5HX2seL2x2hgbDKCWJAwYbGKdVtLr9HHo4g0HD0ijPgt3q7JGPyXlyjhmoCBms&usqp=CAU');
+    background-image: url('https://www.xtrafondos.com/descargar.php?id=6344&resolucion=1920x1080');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: fixed;
     min-height: 100vh;
     }
 
