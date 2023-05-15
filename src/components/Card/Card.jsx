@@ -41,7 +41,7 @@ const Card = ({
 
   useEffect(() => {
     myFavorites.forEach((fav) => {
-      if (fav.id === id) {
+      if (fav.id === id && fav.id > 0) {
         setIsFav(true);
       }
     });
@@ -50,6 +50,7 @@ const Card = ({
     }, 500);
   }, [myFavorites]);
 
+  
   return (
     <DivContainer>
       {loading ? (

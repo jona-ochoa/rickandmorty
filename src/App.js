@@ -29,6 +29,7 @@ const App = () => {
 
   const logout = () => {
     setAccess(false);
+    setCharacters([])
   };
 
   useEffect(() => {
@@ -36,17 +37,37 @@ const App = () => {
   }, [access]);
 
   const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((characters) => [...characters, data]);
-        }
-        if (!data.id || data.id.length > 820) {
-          alert("¡No hay personajes con este ID!");
-        }
+  //   axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+  //     ({ data }) => {
+  //       if (data.name) {
+  //         setCharacters((characters) => [...characters, data]);
+  //       }
+  //       if (data.id && data.id) {
+  //         alert("¡No hay personajes con este ID!");
+  //       }
+  //     }
+  //   );
+  // };
+
+  axios(`https://rickandmortyapi.com/api/character/${id}`)
+  .then(({ data }) => {
+    if (data.name) {
+      // Verificamos si el personaje ya existe en la lista de personajes
+      const characterExists = characters.some((character) => character.id === data.id);
+
+      if (characterExists) {
+        // Si el personaje ya existe, mostramos una alerta
+        alert("¡Este personaje ya existe en la lista!");
+      } else {
+        // Si el personaje no existe, lo agregamos a la lista
+        setCharacters((characters) => [...characters, data]);
       }
-    );
-  };
+    } else {
+      // Si no hay personajes con el ID especificado, mostramos una alerta
+      alert("¡No hay personajes con este ID!");
+    }
+  })
+}
 
   const onClose = (id) => {
     setCharacters(
