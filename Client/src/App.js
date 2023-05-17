@@ -49,7 +49,7 @@ const App = () => {
   //   );
   // };
 
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
+  axios(`http://localhost:3001/rickandmorty/character/${id}`)
   .then(({ data }) => {
     if (data.name) {
       // Verificamos si el personaje ya existe en la lista de personajes
