@@ -5,45 +5,38 @@ const initialState = {
   allCharacters: [],
 };
 
-const rootReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
     case ADD_FAV:
-      const existingCharacter = state.myFavorites.find(
-        (fav) => fav.id === payload.id
-      );
-      if (existingCharacter) {
-        return { ...state };
-      } else {
-        return {
-          ...state,
-          myFavorites: [...state.myFavorites, payload],
-          allCharacters: [...state.allCharacters, payload],
-        };
-      }
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
+
     case REMOVE_FAV:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter((fav) => fav.id !== payload),
+        myFavorites: action.payload,
       };
 
     case FILTER:
+      const filterChar = state.allCharacters.filter(
+        (char) => char.gender === action.payload
+      );
       return {
         ...state,
-        myFavorites: state.allCharacters.filter(
-          (character) => character.gender === payload
-        ),
+        myFavorites: filterChar,
       };
 
     case ORDER:
       const allCharactersCopy = [...state.allCharacters];
-      const sortedCharacters =
-        payload === "A"
-          ? allCharactersCopy.sort((a, b) => a.id - b.id)
-          : allCharactersCopy.sort((a, b) => b.id - a.id);
-
       return {
         ...state,
-        myFavorites: sortedCharacters,
+        myFavorites:
+          action.payload === "A"
+            ? allCharactersCopy.sort((a, b) => a.id - b.id)
+            : allCharactersCopy.sort((a, b) => b.id - a.id),
       };
 
     default:

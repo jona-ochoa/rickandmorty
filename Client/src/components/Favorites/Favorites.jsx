@@ -18,7 +18,7 @@ const Favorites = ({ myFavorites }) => {
 
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
-    setAux(true);
+    setAux(!aux);
   };
 
   const handleFilter = (e) => {

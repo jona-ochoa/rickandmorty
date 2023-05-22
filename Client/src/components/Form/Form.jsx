@@ -63,7 +63,7 @@ const Form = ({ login }) => {
           <Input
             value={userData.password}
             onChange={handleChange}
-            type="password"
+            type="text"
             name="password"
             placeholder="123asd"
           />

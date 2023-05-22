@@ -11,8 +11,8 @@ import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
-const EMAIL = "jonatan.c.ochoa@gmail.com";
-const PASSWORD = "123asd";
+// const EMAIL = "jonatan.c.ochoa@gmail.com";
+// const PASSWORD = "123asd";
 
 const App = () => {
   const location = useLocation();
@@ -20,59 +20,46 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
-  const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
-  };
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(access);
+       access && navigate('/home');
+    });
+ }
 
   const logout = () => {
     setAccess(false);
-    setCharacters([])
+    setCharacters([]);
   };
 
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
 
-  const onSearch = (id) => {
-  //   axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-  //     ({ data }) => {
-  //       if (data.name) {
-  //         setCharacters((characters) => [...characters, data]);
-  //       }
-  //       if (data.id && data.id) {
-  //         alert("¡No hay personajes con este ID!");
-  //       }
-  //     }
-  //   );
-  // };
-
-  axios(`http://localhost:3001/rickandmorty/character/${id}`)
-  .then(({ data }) => {
-    if (data.name) {
-      // Verificamos si el personaje ya existe en la lista de personajes
-      const characterExists = characters.some((character) => character.id === data.id);
-
-      if (characterExists) {
-        // Si el personaje ya existe, mostramos una alerta
-        alert("¡Este personaje ya existe en la lista!");
-      } else {
-        // Si el personaje no existe, lo agregamos a la lista
-        setCharacters((characters) => [...characters, data]);
+  function onSearch(id) {
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          const isCharacterExists = characters.some(
+            (char) => char.id === data.id
+          );
+          if (isCharacterExists) {
+            window.alert("El personaje ya está en la lista");
+          } else {
+            setCharacters((oldChars) => [...oldChars, data]);
+          }
+        } else {
+          window.alert("No hay personajes con este ID");
+        }
       }
-    } else {
-      // Si no hay personajes con el ID especificado, mostramos una alerta
-      alert("¡No hay personajes con este ID!");
-    }
-  })
-}
+    );
+  }
 
   const onClose = (id) => {
-    setCharacters(
-      characters.filter((character) => character.id !== Number(id))
-    );
+    setCharacters(characters.filter((char) => char.id !== Number(id)));
   };
 
   return (

@@ -29,28 +29,55 @@ const Card = ({
   const [isFav, setIsFav] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // const handleFavorite = () => {
+  //   if (isFav) {
+  //     setIsFav(false);
+  //   } else {
+  //     setIsFav(true);
+  //     addFav({ id, name, status, species, gender, origin, image, onClose });
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   myFavorites.forEach((fav) => {
+  //     if (fav.id === id) {
+  //       setIsFav(true);
+  //     }
+  //   });
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 500);
+  // }, [myFavorites]);
   const handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
+
       removeFav(id);
     } else {
-      setIsFav(true);
-      addFav({ id, name, status, species, gender, origin, image, onClose });
+      const favoriteIds = new Set(myFavorites.map((fav) => fav.id));
+
+      if (!favoriteIds.has(id)) {
+        setIsFav(true);
+
+        addFav({ id, name, status, species, gender, origin, image, onClose });
+      }
     }
   };
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === id && fav.id > 0) {
-        setIsFav(true);
-      }
-    });
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    const favoriteIds = new Set(myFavorites.map((fav) => fav.id));
+
+    setIsFav(favoriteIds.has(id));
+
+    setTimeout(
+      () => {
+        setLoading(false);
+      },
+
+      500
+    );
   }, [myFavorites]);
 
-  
   return (
     <DivContainer>
       {loading ? (

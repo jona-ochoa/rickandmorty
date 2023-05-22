@@ -17,8 +17,11 @@ const Detail = () => {
   useEffect(() => {
     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
+        if (data && data.name && data.id && data.gender) {
+          const isCharacterExists = character.id === data.id;
+          if (!isCharacterExists) {
+            setCharacter(data);
+          }
         } else {
           alert("No hay personajes con ese ID");
         }
