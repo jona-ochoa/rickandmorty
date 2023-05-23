@@ -20,15 +20,23 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
-  function login(userData) {
+  async function login(userData) {
     const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-       const { access } = data;
-       setAccess(access);
-       access && navigate('/home');
-    });
- }
+    const URL = "http://localhost:3001/rickandmorty/login";
+
+    try {
+      const response = await axios.get(
+        `${URL}?email=${email}&password=${password}`
+      );
+      const { access } = response.data;
+
+      setAccess(access);
+
+      access && navigate("/home");
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   const logout = () => {
     setAccess(false);
@@ -39,27 +47,22 @@ const App = () => {
     !access && navigate("/");
   }, [access]);
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          const isCharacterExists = characters.some(
-            (char) => char.id === data.id
-          );
-          if (isCharacterExists) {
-            window.alert("El personaje ya está en la lista");
-          } else {
-            setCharacters((oldChars) => [...oldChars, data]);
-          }
-        } else {
-          window.alert("No hay personajes con este ID");
-        }
+  async function onSearch(id) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
       }
-    );
+    } catch (error) {
+      alert("¡No hay personajes con este ID!");
+    }
   }
 
   const onClose = (id) => {
-    setCharacters(characters.filter((char) => char.id !== Number(id)));
+    setCharacters(characters.filter((char) => char.id !== id));
   };
 
   return (

@@ -18,6 +18,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: action.payload,
+        allCharacters: action.payload,
       };
 
     case FILTER:
