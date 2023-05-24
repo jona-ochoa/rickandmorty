@@ -29,25 +29,6 @@ const Card = ({
   const [isFav, setIsFav] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // const handleFavorite = () => {
-  //   if (isFav) {
-  //     setIsFav(false);
-  //   } else {
-  //     setIsFav(true);
-  //     addFav({ id, name, status, species, gender, origin, image, onClose });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   myFavorites.forEach((fav) => {
-  //     if (fav.id === id) {
-  //       setIsFav(true);
-  //     }
-  //   });
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 500);
-  // }, [myFavorites]);
   const handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
@@ -68,14 +49,8 @@ const Card = ({
     const favoriteIds = new Set(myFavorites.map((fav) => fav.id));
 
     setIsFav(favoriteIds.has(id));
-
-    setTimeout(
-      () => {
-        setLoading(false);
-      },
-
-      500
-    );
+    setLoading(false);
+     
   }, [myFavorites]);
 
   return (
@@ -100,7 +75,7 @@ const Card = ({
           </CardWrapper>
           <TextWrapper>
             <Link to={`/detail/${id}`}>
-              <TextNameLink>Name: {name}</TextNameLink>
+              <TextNameLink>{name} ↗</TextNameLink>
             </Link>
             <Text>Status: {status}</Text>
             <Text>Specie: {species}</Text>

@@ -18,10 +18,10 @@ const About = () => {
         <Text>Cohorte: FT-38a</Text>
         <Text>Grupo: N°3</Text>
         <Link to="https://github.com/jona-ochoa">
-          <TextLink>Github: jona-ochoa</TextLink>
+          <TextLink>Github: jona-ochoa ↗</TextLink>
         </Link>
         <Link to="https://linkedin.com/in/jonaochoa">
-          <TextLink>LinkedIn: jonaochoa</TextLink>
+          <TextLink>LinkedIn: jonaochoa ↗</TextLink>
         </Link>
       </AboutWrapText>
       </WrapperDiv>

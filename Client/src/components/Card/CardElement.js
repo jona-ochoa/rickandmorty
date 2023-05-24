@@ -6,17 +6,15 @@ export const DivContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 5px;
-  margin-left: 30px;
+  margin: auto;
   padding: 0;
   width: 250px;
   border: 3px solid #00aae4;
   overflow: hidden;
   border-radius: 8px;
   text-align: left;
-  opacity: 0.7;
   transition: ease 0.3s;
   &:hover {
-    opacity: 1;
     box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
     -webkit-box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
     -moz-box-shadow: 15px 15px 16px 3px rgba(10,10,10,0.54);
@@ -109,6 +107,7 @@ export const TextNameLink = styled.h4`
   align-items: center;
   padding: 0;
   margin: 0;
+  text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
   color: #fff;

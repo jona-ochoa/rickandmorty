@@ -5,9 +5,9 @@ export const DetailContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: 'Creepster', cursive;
+  font-family: "Creepster", cursive;
   letter-spacing: 1em;
-  background: #115;
+  background: #111;
   width: 100vw;
   height: 100vh;
   @media screen and (max-width: 620px) {
@@ -19,16 +19,19 @@ export const DetailContainer = styled.div`
 
 export const DetailContent = styled.div`
   flex: 1;
-`; 
+`;
 export const DetailContentImg = styled.div`
   flex: 1;
-`; 
+`;
 
 export const Img = styled.img`
-  max-width: 500px;
-  border-radius: 50%;
+  width: 400px;
+  border-radius: 4%;
+  box-shadow: 21px 20px 20px 0px rgba(250, 250, 250, 0.75);
+  -webkit-box-shadow: 21px 20px 20px 0px rgba(250, 250, 250, 0.75);
+  -moz-box-shadow: 21px 20px 20px 0px rgba(250, 250, 250, 0.75);
   @media screen and (max-width: 620px) {
-   width: 200px;
+    width: 200px;
   }
 `;
 
