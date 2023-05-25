@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Container, WrapperDiv , AboutWrap, Image, AboutWrapText, TextLink, Text } from "./AboutElement";
+import image from '../../assets/image/jochoa-removebg-preview.png'
 
 const About = () => {
   return (
     <Container id="about" className='about'>
       <WrapperDiv>
       <AboutWrap>
-        <Image src={"https://jonaochoa.vercel.app/static/media/jonacode.3b5e728e432e6b1e1dae.jpg"}
+        <Image src={image}
           alt="Jonatan"
         />
       </AboutWrap>
