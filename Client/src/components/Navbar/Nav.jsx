@@ -11,7 +11,7 @@ import {
   WrapperInputButton,
 } from "./NavElement";
 
-const Nav = ({ onSearch, logout }) => {
+const Nav = ({ onSearch, logout, allChar }) => {
 
   return (
     <Navbar>
@@ -25,7 +25,7 @@ const Nav = ({ onSearch, logout }) => {
             <NavLink to="/about">ABOUT</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/favorites">FAVORITES</NavLink>
+            <NavLink to="/favorites">FAV</NavLink>
           </NavItem>
         </NavMenu>
         <WrapperInputButton>

@@ -11,9 +11,6 @@ import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
-// const EMAIL = "jonatan.c.ochoa@gmail.com";
-// const PASSWORD = "123asd";
-
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,24 +25,24 @@ const App = () => {
       const response = await axios.get(
         `${URL}?email=${email}&password=${password}`
       );
+
       const { access } = response.data;
-
       setAccess(access);
-
       access && navigate("/home");
     } catch (error) {
       alert(error.message);
     }
   }
+  
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
 
   const logout = () => {
     setAccess(false);
     setCharacters([]);
   };
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access]);
 
   async function onSearch(id) {
     try {
@@ -54,7 +51,14 @@ const App = () => {
       );
 
       if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
+        const characterExists = characters.find(
+          (character) => character.id === data.id
+        );
+        if (!characterExists) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          alert("¡Ya existe un personaje con este ID!");
+        }
       }
     } catch (error) {
       alert("¡No hay personajes con este ID!");
@@ -79,7 +83,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" exact element={<Error />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} />        
       </Routes>
     </>
   );

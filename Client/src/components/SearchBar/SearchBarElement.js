@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DivContent = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,7 +42,7 @@ export const Input = styled.input`
   font-size: 1em;
   outline: none;
   &::placeholder {
-    color: #555;
+    color: #777;
   }
   &:focus {
     border-bottom: 2px solid #3f0594;

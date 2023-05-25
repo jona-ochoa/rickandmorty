@@ -97,12 +97,12 @@ export const NavLink = styled(Link)`
 export const Button = styled.button`
   background: red;
   color: white;
-  padding: 8px 12px;
+  padding: 6px 12px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 600;
   overflow: hidden;
   height: 30px;
   opacity: 1;

@@ -73,14 +73,19 @@ export const Image = styled.img`
   border-radius: 50%;
 `;
 export const Button = styled.button`
-  background: #00ff00;
-  color: black;
+  background: #4285F4;
+  color: #fff;
+  font-weight: 700;
   padding: 8px 16px;
   border: none;
   border-radius: 5px;
   outline: none;
   font-weight: 700;
   cursor: pointer;
+  transition: all .3s;
+  &:hover {
+    background: #3367d6;
+    }
 `;
 export const DivButton = styled.div`
   display: flex;

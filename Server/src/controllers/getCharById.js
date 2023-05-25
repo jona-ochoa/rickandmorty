@@ -13,6 +13,17 @@ const getCharById = async (req, res) => {
   }
 }
 
+const getAllCharacters = async (req, res) => {
+  try {
+    const response = await axios.get(`${URL}/character`);
+    const characters = response.data.results;
+    return res.status(200).json(characters);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+}
+
 module.exports = {
   getCharById,
+  getAllCharacters
 };
