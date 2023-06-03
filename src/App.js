@@ -18,19 +18,15 @@ const App = () => {
   const [access, setAccess] = useState(false);
 
   async function login(userData) {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login";
-
     try {
-      const response = await axios.get(
-        `${URL}?email=${email}&password=${password}`
-      );
-
-      const { access } = response.data;
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login";
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { access } = data;
       setAccess(access);
       access && navigate("/home");
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
   }
   
