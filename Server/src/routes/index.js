@@ -8,7 +8,7 @@ const deleteFav = require('../controllers/deleteFav')
 const router = require('express').Router()
 
 router.get('/login', login);
-router.post('/login', postUser);
+router.post('/login/post', postUser);
 router.post('/fav', postFav)
 router.delete('/fav/:id', deleteFav)
 router.get('/character/:id', getCharById);

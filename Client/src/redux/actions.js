@@ -6,7 +6,7 @@ export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 
 export const addFav = (character) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = "https://rickandmorty-m2y1.onrender.com/rickandmorty/fav";
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -22,7 +22,7 @@ export const addFav = (character) => {
 
 export const removeFav = (id) => {
   try {
-    const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+    const endpoint = "https://rickandmorty-m2y1.onrender.com/rickandmorty/fav/" + id;
     return async (dispatch) => {
       const { data } = await axios.delete(endpoint);
       return dispatch({

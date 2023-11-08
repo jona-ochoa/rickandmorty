@@ -15,7 +15,7 @@ const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    axios(`https://rickandmorty-m2y1.onrender.com/rickandmorty/character/${id}`).then(
       ({ data }) => {
         if (data && data.name && data.id && data.gender) {
           const isCharacterExists = character.id === data.id;
