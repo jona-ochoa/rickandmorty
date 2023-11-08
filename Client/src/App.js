@@ -17,6 +17,8 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
+// ! use jonatan.c.ochoa@gmail.com password: 123asd
+
   async function login(userData) {
     try {
       const { email, password } = userData;
