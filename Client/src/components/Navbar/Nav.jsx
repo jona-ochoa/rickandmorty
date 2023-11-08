@@ -11,7 +11,8 @@ import {
   WrapperInputButton,
 } from "./NavElement";
 
-const Nav = ({ onSearch, logout, allChar }) => {
+// const Nav = ({ onSearch, logout, allChar }) => {
+const Nav = ({ onSearch, allChar }) => {
 
   return (
     <Navbar>
@@ -30,7 +31,7 @@ const Nav = ({ onSearch, logout, allChar }) => {
         </NavMenu>
         <WrapperInputButton>
           <SearchBar onSearch={onSearch} />
-          <Button onClick={logout}>LOG OUT</Button>
+          {/* <Button onClick={logout}>LOG OUT</Button> */}
         </WrapperInputButton>
       </NavContainer>
     </Navbar>

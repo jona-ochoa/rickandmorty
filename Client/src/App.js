@@ -15,26 +15,26 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  // const [access, setAccess] = useState(false);
 
 // ! use jonatan.c.ochoa@gmail.com password: 123asd
 
-  async function login(userData) {
-    try {
-      const { email, password } = userData;
-      const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
-      const { data } = await axios(URL + `?email=${email}&password=${password}`);
-      const { access } = data;
-      setAccess(access);
-      access && navigate("/home");
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // async function login(userData) {
+  //   try {
+  //     const { email, password } = userData;
+  //     const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
+  //     const { data } = await axios(URL + `?email=${email}&password=${password}`);
+  //     const { access } = data;
+  //     setAccess(access);
+  //     access && navigate("/home");
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
   
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
 
   const logout = () => {
     setAccess(false);
@@ -70,11 +70,13 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
+      {location.pathname !== "/" && <Nav onSearch={onSearch} 
+      // logout={logout}
+       />}
       <Routes>
         {/* <Route path="/" element={<Form login={login} />} /> */}
         <Route
-          path="/home"
+          path="/"
           exact
           element={<Cards characters={characters} onClose={onClose} />}
         />
