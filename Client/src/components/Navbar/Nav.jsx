@@ -11,8 +11,7 @@ import {
   WrapperInputButton,
 } from "./NavElement";
 
-// const Nav = ({ onSearch, logout, allChar }) => {
-
+const Nav = ({ onSearch, logout, allChar }) => {
   return (
     <Navbar>
       <NavContainer>

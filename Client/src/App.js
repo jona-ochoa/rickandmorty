@@ -15,7 +15,7 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
 
   // ! use jonatan.c.ochoa@gmail.com password: 123asd
 
