@@ -7,7 +7,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import GlobalStyles from "./GlobalStyles";
-import Error from "./components/Error/Error";
+// import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
@@ -15,32 +15,33 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
-  // const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(false);
 
-// ! use jonatan.c.ochoa@gmail.com password: 123asd
+  // ! use jonatan.c.ochoa@gmail.com password: 123asd
 
-  // async function login(userData) {
-  //   try {
-  //     const { email, password } = userData;
-  //     const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
-  //     const { data } = await axios(URL + `?email=${email}&password=${password}`);
-  //     const { access } = data;
-  //     setAccess(access);
-  //     access && navigate("/home");
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-  
-  // useEffect(() => {
-  //   !access && navigate("/");
-  // }, [access]);
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
 
   const logout = () => {
     setAccess(false);
     setCharacters([]);
   };
-
 
   async function onSearch(id) {
     try {
@@ -70,20 +71,18 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {location.pathname !== "/" && <Nav onSearch={onSearch} 
-      // logout={logout}
-       />}
+      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
-        {/* <Route path="/" element={<Form login={login} />} /> */}
+        <Route path="/" element={<Form login={login} />} />
         <Route
-          path="/"
+          path="/home"
           exact
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" exact element={<Error />} />
-        <Route path="/favorites" element={<Favorites />} />        
+        {/* <Route path="*" exact element={<Error />} /> */}
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );
