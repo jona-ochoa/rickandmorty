@@ -7,13 +7,13 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import GlobalStyles from "./GlobalStyles";
 import Form from "./components/Form/Form";
-import Register from "./components/RegisterForm";
+import RegisterForm from "./components/RegisterForm";
 import Favorites from "./components/Favorites/Favorites";
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [authenticated, setAuthenticated] = useState(false);
+  const [access, setAccess] = useState(false);
   const [characters, setCharacters] = useState([]);
 
   async function login(userData) {
@@ -22,7 +22,6 @@ const App = () => {
       const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
       const { data } = await axios(URL + `?email=${email}&password=${password}`);
       const { access } = data;
-      setAuthenticated(access);
       access && navigate("/home");
     } catch (error) {
       console.log(error.message);
@@ -42,15 +41,15 @@ const App = () => {
   }
 
   const logout = () => {
-    setAuthenticated(false);
+    setAccess(false);
     setCharacters([]);
   };
 
   useEffect(() => {
-    if (!authenticated && location.pathname !== "/") {
+    if (!access && location.pathname !== "/") {
       navigate("/");
     }
-  }, [authenticated, location.pathname, navigate]);
+  }, [access, location.pathname, navigate]);
 
   return (
     <>
@@ -58,7 +57,7 @@ const App = () => {
       {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
-        <Route path="/register" element={<Register register={register} />} />
+        <Route path="/register" element={<RegisterForm register={register} />} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
