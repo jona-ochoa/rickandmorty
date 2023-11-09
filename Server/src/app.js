@@ -2,9 +2,11 @@ const express = require("express");
 const server = express();
 const morgan = require('morgan')
 const router = require('./routes')
+const bodyParser = require('body-parser');
 
 server.use(express.json());
 server.use(morgan('dev'))
+server.use(bodyParser.json())
 
 server.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');

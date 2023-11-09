@@ -1,90 +1,72 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import { Routes, Route, useLocation, useNavigate, Redirect } from "react-router-dom";
+import axios from "axios";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Navbar/Nav";
-import axios from "axios";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import GlobalStyles from "./GlobalStyles";
-// import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [authenticated, setAuthenticated] = useState(false);
   const [characters, setCharacters] = useState([]);
-  // const [access, setAccess] = useState(true);
 
-  // ! use jonatan.c.ochoa@gmail.com password: 123asd
-
-  // async function login(userData) {
-  //   try {
-  //     const { email, password } = userData;
-  //     const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
-  //     const { data } = await axios(
-  //       URL + `?email=${email}&password=${password}`
-  //     );
-  //     const { access } = data;
-  //     setAccess(access);
-  //     access && navigate("/home");
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   !access && navigate("/");
-  // }, [access]);
-
-  // const logout = () => {
-  //   setAccess(false);
-  //   setCharacters([]);
-  // };
-
-  async function onSearch(id) {
+  async function login(userData) {
     try {
-      const { data } = await axios(
-        `https://rickandmorty-m2y1.onrender.com/rickandmorty/character/${id}`
-      );
-
-      if (data.name) {
-        const characterExists = characters.find(
-          (character) => character.id === data.id
-        );
-        if (!characterExists) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          alert("¡Ya existe un personaje con este ID!");
-        }
-      }
+      const { email, password } = userData;
+      const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/login";
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { access } = data;
+      setAuthenticated(access);
     } catch (error) {
-      alert("¡No hay personajes con este ID!");
+      console.log(error.message);
     }
   }
 
-  const onClose = (id) => {
-    setCharacters(characters.filter((char) => char.id !== id));
+  async function register(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "https://rickandmorty-m2y1.onrender.com/rickandmorty/register";
+      await axios.post(URL, { email, password });
+      // Si el registro es exitoso, también puedes iniciar sesión automáticamente
+      login(userData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  const logout = () => {
+    setAuthenticated(false);
+    setCharacters([]);
+  };
+
+  useEffect(() => {
+    if (!authenticated && location.pathname !== "/") {
+      navigate("/");
+    }
+  }, [authenticated, location.pathname, navigate]);
+
+  const PrivateRoute = ({ element, ...rest }) => {
+    return authenticated ? element : <Redirect to="/" />;
   };
 
   return (
     <>
       <GlobalStyles />
-      {/* {location.pathname !== "/" && <Nav onSearch={onSearch}  logout={logout} />} */}
-      <Nav onSearch={onSearch} />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
-        {/* <Route path="/" element={<Form login={login} />} /> */}
-        <Route path="/" element={<Cards characters={characters} onClose={onClose} />} />
-        <Route
+        <Route path="/" element={<Form login={login} register={register} />} />
+        <PrivateRoute
           path="/home"
-          exact
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        {/* <Route path="*" exact element={<Error />} /> */}
-        <Route path="/favorites" element={<Favorites />} />
+        <PrivateRoute path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );
