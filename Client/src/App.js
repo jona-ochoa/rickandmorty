@@ -31,7 +31,6 @@ const App = () => {
   }
 
   async function register(userData) {
-    e.preventDefault();
     try {
       const { email, password } = userData;
       const URL =
