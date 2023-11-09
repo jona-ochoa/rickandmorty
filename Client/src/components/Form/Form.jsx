@@ -12,6 +12,7 @@ import {
   TextError,
 } from "./FormElement";
 import validation from "./validation";
+import { Link } from 'react-router-dom';
 
 const Form = ({ login }) => {
   const [errors, setErrors] = useState([]);
@@ -72,6 +73,10 @@ const Form = ({ login }) => {
          
           <DivButton>
             <Button type="submit" onClick={handleSubmit}>Submit</Button>
+          </DivButton>
+
+          <DivButton>
+            <Link href="/register">Create account</Link>
           </DivButton>
         </InputsWrapper>
       </Content>
