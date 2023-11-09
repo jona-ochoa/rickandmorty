@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useLocation, useNavigate, Redirect } from "react-router-dom";
+import { Routes, Route, useLocation, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Navbar/Nav";
@@ -22,6 +22,7 @@ const App = () => {
       const { data } = await axios(URL + `?email=${email}&password=${password}`);
       const { access } = data;
       setAuthenticated(access);
+      access && navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
@@ -50,26 +51,34 @@ const App = () => {
     }
   }, [authenticated, location.pathname, navigate]);
 
-  const PrivateRoute = ({ element, ...rest }) => {
-    return authenticated ? element : <Redirect to="/" />;
-  };
-
   return (
     <>
       <GlobalStyles />
       {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
         <Route path="/" element={<Form login={login} register={register} />} />
-        <PrivateRoute
+        <Route
           path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
+          element={
+            <Outlet>
+              <PrivateRoute
+                path="/"
+                element={<Cards characters={characters} onClose={onClose} />}
+              />
+            </Outlet>
+          }
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <PrivateRoute path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );
 };
 
 export default App;
+
+const PrivateRoute = ({ element }) => {
+  const isAuthenticated = /* lógica para verificar la autenticación, por ejemplo, desde el contexto de autenticación */;
+  return isAuthenticated ? element : <Navigate to="/" replace />;
+};
